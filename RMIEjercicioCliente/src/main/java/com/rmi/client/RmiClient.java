@@ -33,11 +33,22 @@ public class RmiClient {
                    float [] averageSalary = employeeSalary.CalculateAverageSalary(employeeSalaries);
                    float totalSalaries = employeeSalary.CalculateTotalSalary(totalEmployeeSalary);
                    
-                   System.out.println("Salarios de cada empleado:");
+                   System.out.println("********************************");
+                   System.out.println("Total salarios de cada empleado:");
                    
                    for (int i = 0; i < totalEmployeeSalary.length; i++) {
-                       System.out.println("Salarios de empleado "+ (i+1) +" : "+ totalEmployeeSalary[i]);
+                       System.out.println("Total salario de empleado "+ (i+1) +" : "+ totalEmployeeSalary[i]);
                    }
+                   System.out.println("********************************");
+                   
+                   System.out.println("Promedio de salarios de cada mes:");
+                   
+                   for (int i = 0; i < averageSalary.length; i++) {
+                       System.out.println("Promedio salario mes "+ (i+1) +" : "+ averageSalary[i]);
+                   }
+                   
+                   System.out.println("********************************");
+                   System.out.println("Total pagado a todos los empleados: "+ totalSalaries);
                    
                    flag = 0;
                    
