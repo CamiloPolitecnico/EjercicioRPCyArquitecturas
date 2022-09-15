@@ -40,11 +40,11 @@ public class EmployeeSalaryService extends UnicastRemoteObject implements IEmplo
     @Override
     public float[] CalculateEmployeeSalary(float[][] employeeSalary) throws RemoteException 
     {
-        float[] salaryByEmployee = new float[employeeSalary[0].length];
+        float[] salaryByEmployee = new float[employeeSalary.length];
         
-        for (int i = 0; i < employeeSalary[0].length; i++) {
+        for (int i = 0; i < employeeSalary.length; i++) {
             float acuSalary = 0;
-            for (int j = 0; j < employeeSalary[1].length; j++) {
+            for (int j = 0; j < employeeSalary[0].length; j++) {
                 acuSalary = employeeSalary[i][j] + acuSalary;
             }
             
@@ -57,15 +57,15 @@ public class EmployeeSalaryService extends UnicastRemoteObject implements IEmplo
     @Override
     public float[] CalculateAverageSalary(float[][] employeeSalary) throws RemoteException 
     {
-        float[] averageSalaryByMonth = new float[employeeSalary[1].length];
+        float[] averageSalaryByMonth = new float[employeeSalary[0].length];
         
-        for (int i = 0; i < employeeSalary[1].length; i++) {
+        for (int i = 0; i < employeeSalary[0].length; i++) {
             float acuSalary = 0;
-            for (int j = 0; j < employeeSalary[0].length; j++) {
+            for (int j = 0; j < employeeSalary.length; j++) {
                 acuSalary = employeeSalary[j][i] + acuSalary;
             }
             
-            averageSalaryByMonth[i] = acuSalary / employeeSalary[0].length;
+            averageSalaryByMonth[i] = acuSalary / employeeSalary.length;
         }
         
         return averageSalaryByMonth;
