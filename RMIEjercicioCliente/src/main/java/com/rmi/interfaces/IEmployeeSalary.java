@@ -13,9 +13,9 @@ import java.rmi.RemoteException;
  */
 public interface IEmployeeSalary extends Remote{
     
-    public float[][] FillSalary(float[][] employeeSalary) throws RemoteException;
+    public float[][] FillSalary(int employees, int months) throws RemoteException;
     
-    public float[][] CalculateEmployeeSalary(float[][] employeeSalary) throws RemoteException;
+    public float[] CalculateEmployeeSalary(float[][] employeeSalary) throws RemoteException;
     
     public float[] CalculateAverageSalary(float[][] employeeSalary) throws RemoteException;
     

@@ -20,12 +20,12 @@ public class EmployeeSalaryService extends UnicastRemoteObject implements IEmplo
     }
         
     @Override
-    public float[][] FillSalary(float[][] employeeSalary) throws RemoteException {
+    public float[][] FillSalary(int employees, int months) throws RemoteException {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     @Override
-    public float[][] CalculateEmployeeSalary(float[][] employeeSalary) throws RemoteException {
+    public float[] CalculateEmployeeSalary(float[][] employeeSalary) throws RemoteException {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
