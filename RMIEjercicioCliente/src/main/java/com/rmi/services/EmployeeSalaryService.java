@@ -7,6 +7,7 @@ package com.rmi.services;
 import com.rmi.interfaces.IEmployeeSalary;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
+import java.util.Random;
 
 /**
  *
@@ -20,23 +21,66 @@ public class EmployeeSalaryService extends UnicastRemoteObject implements IEmplo
     }
         
     @Override
-    public float[][] FillSalary(int employees, int months) throws RemoteException {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public float[][] FillSalary(int employees, int months) throws RemoteException 
+    {
+        float[][] employeeSalary = new float[employees][months];
+        
+        Random r = new Random();
+        
+        for (int i = 0; i < employees; i++) {
+            for (int j = 0; j < months; j++) {
+                int salary = r.nextInt(10000000)+1000000;
+                employeeSalary[i][j] = salary;
+            }
+        }
+        
+        return employeeSalary;
     }
 
     @Override
-    public float[] CalculateEmployeeSalary(float[][] employeeSalary) throws RemoteException {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public float[] CalculateEmployeeSalary(float[][] employeeSalary) throws RemoteException 
+    {
+        float[] salaryByEmployee = new float[employeeSalary[0].length];
+        
+        for (int i = 0; i < employeeSalary[0].length; i++) {
+            float acuSalary = 0;
+            for (int j = 0; j < employeeSalary[1].length; j++) {
+                acuSalary = employeeSalary[i][j] + acuSalary;
+            }
+            
+            salaryByEmployee[i] = acuSalary;
+        }
+        
+        return salaryByEmployee;
     }
 
     @Override
-    public float[] CalculateAverageSalary(float[][] employeeSalary) throws RemoteException {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public float[] CalculateAverageSalary(float[][] employeeSalary) throws RemoteException 
+    {
+        float[] averageSalaryByMonth = new float[employeeSalary[1].length];
+        
+        for (int i = 0; i < employeeSalary[1].length; i++) {
+            float acuSalary = 0;
+            for (int j = 0; j < employeeSalary[0].length; j++) {
+                acuSalary = employeeSalary[j][i] + acuSalary;
+            }
+            
+            averageSalaryByMonth[i] = acuSalary / employeeSalary[0].length;
+        }
+        
+        return averageSalaryByMonth;
     }
 
     @Override
-    public float CalculateTotalSalary(float[][] employeeSalary) throws RemoteException {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public float CalculateTotalSalary(float[] salaryByEmployee) throws RemoteException 
+    {
+        float acuSalary = 0;
+        
+        for (int i = 0; i < salaryByEmployee.length; i++) {
+            acuSalary = salaryByEmployee[i] + acuSalary;
+        }
+        
+        return acuSalary;
     }
     
 }

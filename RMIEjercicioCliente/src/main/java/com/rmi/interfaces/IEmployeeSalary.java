@@ -19,5 +19,5 @@ public interface IEmployeeSalary extends Remote{
     
     public float[] CalculateAverageSalary(float[][] employeeSalary) throws RemoteException;
     
-    public float CalculateTotalSalary(float[][] employeeSalary) throws RemoteException;
+    public float CalculateTotalSalary(float[] salaryByEmployee) throws RemoteException;
 }
