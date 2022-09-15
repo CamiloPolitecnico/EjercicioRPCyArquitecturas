@@ -29,7 +29,7 @@ public class EmployeeSalaryService extends UnicastRemoteObject implements IEmplo
         
         for (int i = 0; i < employees; i++) {
             for (int j = 0; j < months; j++) {
-                int salary = r.nextInt(10000000)+1000000;
+                int salary = r.nextInt(1000000)+1;
                 employeeSalary[i][j] = salary;
             }
         }
